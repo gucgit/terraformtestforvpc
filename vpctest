@@ -1,0 +1,15 @@
+provider "aws" {
+  region = "ap-south-1"  # Change this to your preferred AWS region
+}
+
+resource "aws_vpc" "my_vpc" {
+  cidr_block = "10.0.0.0/16"
+  
+  tags = {
+    Name = "MyCustomVPC"
+  }
+}
+
+output "vpc_id" {
+  value = aws_vpc.my_vpc.id
+}
